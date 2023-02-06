@@ -11,3 +11,16 @@ call :concat "%BASE_DIR%\libs\*;"
 --------------------------------------------
 kafka
 .\bin\windows\kafka-server-start.bat .\config\server.properties
+------------------------------------------------
+create topic 
+.\bin\windows\kafka-topics.bat --create --topic  --bootstrap-server localhost:9092
+
+Run Producer
+.\bin\windows\kafka-console-producer.bat  --topic  --bootstrap-server localhost:9092
+
+
+Run Consumer
+.\bin\windows\kafka-console-consumer.bat --topic  --from-beginning --bootstrap-server localhost:9092
+
+Check all topic:
+.\bin\windows\kafka-topics.bat --bootstrap-server=localhost:2181 --list
