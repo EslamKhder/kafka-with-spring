@@ -11,13 +11,13 @@ import java.util.Map;
 public class ProducerService {
 
     @Autowired
-    private KafkaTemplate<String,Map<String,Integer>> kafkaTemplate;
+    private KafkaTemplate<String,String> kafkaTemplate;
 
     @Value("${kafka.topic}")
     private String topic;
 
     public Map<String,Integer> sendMessage(Map<String,Integer> order){
-        kafkaTemplate.send(topic,order);
+        kafkaTemplate.send(topic,order.toString());
         return order;
     }
 }
